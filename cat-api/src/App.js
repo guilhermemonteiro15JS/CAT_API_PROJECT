@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
+import Breeds from "./pages/Breeds";
 import About from "./pages/About"
 import Footer from "./pages/components/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,8 +33,8 @@ const App = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="nav-bar">
               <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/Breeds">Raças de Gatos</Nav.Link>
-              <Nav.Link href="/Sources">Recursos</Nav.Link>
+              <Nav.Link href="/breeds">Breeds</Nav.Link>
+              <Nav.Link href="/Collection">Collection</Nav.Link>
               <Nav.Link href="/About">About</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -64,6 +65,14 @@ const App = () => {
                 element={
                   <PageContent>
                     <About />
+                  </PageContent>
+                }
+              />
+              <Route
+                path="/Breeds"
+                element={
+                  <PageContent>
+                    <Breeds /> 
                   </PageContent>
                 }
               />
