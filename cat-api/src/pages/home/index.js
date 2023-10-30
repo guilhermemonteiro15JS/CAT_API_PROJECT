@@ -1,5 +1,5 @@
 import React from "react";
-import {HomeContainer, ConstructionText} from "./styled";
+import {HomeContainer} from "./styled";
 import ImageSlider from "../../components/imageSlider";
 
 

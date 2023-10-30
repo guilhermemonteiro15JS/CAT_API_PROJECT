@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
+import Vote from "./pages/Vote";
+import About from "./pages/About";
 import Breeds from "./pages/Breeds";
-import About from "./pages/About"
 import Footer from "./pages/components/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -33,7 +34,8 @@ const App = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="nav-bar">
               <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/breeds">Breeds</Nav.Link>
+              <Nav.Link href="/Vote">Vote</Nav.Link>
+              <Nav.Link href="/Breeds">Breeds</Nav.Link>
               <Nav.Link href="/Collection">Collection</Nav.Link>
               <Nav.Link href="/About">About</Nav.Link>
             </Nav>
@@ -65,6 +67,14 @@ const App = () => {
                 element={
                   <PageContent>
                     <About />
+                  </PageContent>
+                }
+              />
+              <Route
+                path="/Vote"
+                element={
+                  <PageContent>
+                    <Vote /> 
                   </PageContent>
                 }
               />
