@@ -7,7 +7,7 @@ const ImageSlider = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch("https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=10");
+        const response = await fetch("https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM");
         const data = await response.json();
         setImages(data);
       } catch (error) {
