@@ -1,5 +1,5 @@
 import React from "react";
-import {HomeContainer, ConstructionText} from "./styled";
+import {HomeContainer, ClassHome, KeyParagraph} from "./styled";
 import ImageSlider from "../../components/imageSlider";
 
 
@@ -7,11 +7,11 @@ import ImageSlider from "../../components/imageSlider";
 const Home = () => {
   return (
     <HomeContainer>
-      <div className="home">
-      <p>This is my API Key {process.env.REACT_APP_API_KEY}</p>
+      <ClassHome>
+      <KeyParagraph>This is my API Key {process.env.REACT_APP_API_KEY}</KeyParagraph>
       <p> Aqui verás tudo acerca de Gatos</p>
       <ImageSlider/>
-      </div>
+      </ClassHome>
     </HomeContainer>
   );
 };
