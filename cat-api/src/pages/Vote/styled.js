@@ -1,4 +1,4 @@
-* {
+/* * {
   font-family: "Poppins", sans-serif;
   padding: 0;
   margin: 0;
@@ -41,3 +41,11 @@
 .dislike-active {
   background-color: #394350;
 }
+ */
+
+
+import styled from "styled-components";
+
+export const StyledVoteOptions = styled.div`
+  display: ${(props) => (props.showResults ? "none" : "block")};
+`;

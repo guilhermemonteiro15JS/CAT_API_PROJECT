@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
 import Vote from "./pages/Vote";
+import Collection from "./pages/Collection"
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
 import Footer from "./pages/components/footer";
@@ -86,6 +87,15 @@ const App = () => {
                   </PageContent>
                 }
               />
+              <Route
+                path="/Collection"
+                element={
+                  <PageContent>
+                    <Collection /> 
+                  </PageContent>
+                }
+              />
+              
               
             </Routes>
           </Col>
