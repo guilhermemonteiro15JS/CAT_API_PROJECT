@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Vote from "./pages/Vote";
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
+import AllBreeds from "./pages/AllBreeds";
 import Footer from "./pages/components/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -86,7 +87,14 @@ const App = () => {
                   </PageContent>
                 }
               />
-              
+              <Route
+                path="/AllBreeds"
+                element={
+                  <PageContent>
+                    <AllBreeds /> 
+                  </PageContent>
+                }
+              />
             </Routes>
           </Col>
         </Row>

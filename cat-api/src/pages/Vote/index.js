@@ -92,7 +92,7 @@ function Vote() {
   
     useEffect(() => {
       showVoteOptions();
-    }, []); // Empty dependency array to run only once on component mount
+    }, []);
   
     function showHistoricVotes() {
       setShowResults(true);
