@@ -5,7 +5,6 @@ import Vote from "./pages/Vote";
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
 import AllBreeds from "./pages/AllBreeds";
-import About from "./pages/About";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { BodyApp, StyledNav, PageContent,  } from "./appstyled";
