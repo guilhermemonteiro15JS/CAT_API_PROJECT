@@ -32,7 +32,7 @@ const ImageSlider = () => {
         style={{
           width: '70vh',
           height: '70vh',
-          animation: 'slide 15s infinite',
+          animation: 'slide 1s ',
         }}
       />
       )}

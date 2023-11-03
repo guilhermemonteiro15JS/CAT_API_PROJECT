@@ -1,5 +1,6 @@
 import React from "react";
-import { Stylecontainer, Styleheading, Styleparagraph, StylelistItem } from "./styled";
+import { Stylecontainer, Styleheading, Styleparagraph, StylelistItem,GitHubLink } from "./styled";
+
 
 const About = () => {
   return (
@@ -30,7 +31,22 @@ const About = () => {
       </ul>
 
       <Styleparagraph>Então, prepare-se para se perder no fascinante "Mundo Felino"! Seja bem-vindo, amigo felino. 🐾</Styleparagraph>
+      <Styleheading>Este projecto foi criado por:</Styleheading>
+      <ul>
+        <StylelistItem>Guilherme Monteiro 
+          <GitHubLink href="https://github.com/guilhergemonteiro15JS">
+            <i className="bi bi-github"></i>
+          </GitHubLink></StylelistItem>
+        <StylelistItem>
+         Ricardo Oliveira
+          <GitHubLink href="https://github.com/ricardoszs">
+            <i className="bi bi-github"></i>
+          </GitHubLink>
+        </StylelistItem>
+        
+      </ul>
     </Stylecontainer>
+    
   );
 }
 

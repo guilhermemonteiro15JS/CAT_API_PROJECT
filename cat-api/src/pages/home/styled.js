@@ -1,5 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
+import styled, { keyframes } from "styled-components";
 
 export const HomeContainer = styled.div`
   display: flex;
@@ -19,9 +18,8 @@ export const ClassHome = styled.div`
   color: #333;
   font-size: 40px;
   font-family: 'Arial', sans-serif;
-  gap:10px;
 `;
 
 export const KeyParagraph = styled.p`
-font-size: 10px;
-`
+  font-size: 10px;
+`;

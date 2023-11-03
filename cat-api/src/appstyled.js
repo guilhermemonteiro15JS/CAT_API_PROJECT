@@ -1,19 +1,23 @@
 import styled from "styled-components";
 
 export const BodyApp = styled.body`
+background-color: #C6C5AC;
   min-height: 100vh;
-  /* background-color: papayawhip; */
   justify-items: center;
   flex-direction: column;
 `;
 
 export const StyledNav = styled.nav`
-  background-color: #f2b705;
+  background-color: #594E4D;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  height: 100px;
+  
 `;
 
 export const PageContent = styled.div`
+background-color: #C6C5AC;
   flex: 1;
-  /* background-color: papayawhip; */
+  
+ 
 `;

@@ -22,3 +22,8 @@ export const Styleparagraph = styled.div`
 export const StylelistItem = styled.li`
   margin-bottom: 10px;
 `;
+export const GitHubLink = styled.a`
+  color: black;
+  padding: 2px
+`;
+
