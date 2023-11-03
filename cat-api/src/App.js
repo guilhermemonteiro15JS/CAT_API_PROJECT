@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
 import Vote from "./pages/Vote";
+import Collection from "./pages/Collection";
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
 import AllBreeds from "./pages/AllBreeds";
@@ -75,7 +76,7 @@ const App = () => {
                 path="/Vote"
                 element={
                   <PageContent>
-                    <Vote /> 
+                    <Vote />
                   </PageContent>
                 }
               />
@@ -92,6 +93,15 @@ const App = () => {
                 element={
                   <PageContent>
                     <AllBreeds /> 
+                    </PageContent>
+                }
+                />
+                <Route
+                path="/Collection"
+                element={
+                  <PageContent>
+                    <Collection />
+
                   </PageContent>
                 }
               />
