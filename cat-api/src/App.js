@@ -5,40 +5,40 @@ import Vote from "./pages/Vote";
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
 import AllBreeds from "./pages/AllBreeds";
-import Footer from "./pages/components/footer";
+import About from "./pages/About";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { BodyApp, StyledNav, PageContent } from "./appstyled";
+import { BodyApp, StyledNav, PageContent,  } from "./appstyled";
 
-import {
-  Container,
-  Row,
-  Col,
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Container, Row, Col, Navbar, Nav, } from "react-bootstrap";
+
 
 const App = () => {
-  
   return (
     <BrowserRouter>
       <StyledNav>
         <Navbar collapseOnSelect expand="lg" variant="dark">
-          <Navbar.Brand href="/home">
-            <i className="bi bi-book"></i>Mundo Felino
-            <i className="bi bi-book"></i>
-          </Navbar.Brand>
+          <Navbar.Brand href="/home">Mundo Felino</Navbar.Brand>
+
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="nav-bar">
-              <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/Vote">Vote</Nav.Link>
-              <Nav.Link href="/Breeds">Breeds</Nav.Link>
-              <Nav.Link href="/Collection">Collection</Nav.Link>
-              <Nav.Link href="/About">About</Nav.Link>
+              <Nav.Link href="/home">
+                <i class="bi bi-house"></i>
+                Home
+              </Nav.Link>
+              <Nav.Link href="/breeds">
+                <i class="bi bi-grid-3x2-gap-fill"></i>
+                Breeds
+              </Nav.Link>
+              <Nav.Link href="/Collection">
+                <i class="bi bi-collection"></i>
+                Collection
+              </Nav.Link>
+              <Nav.Link href="/About">
+                <i class="bi bi-info-circle"></i>
+                About
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -51,7 +51,7 @@ const App = () => {
                 path="/"
                 element={
                   <PageContent>
-                    <Home /> 
+                    <Home />
                   </PageContent>
                 }
               />
@@ -83,7 +83,7 @@ const App = () => {
                 path="/Breeds"
                 element={
                   <PageContent>
-                    <Breeds /> 
+                    <Breeds />
                   </PageContent>
                 }
               />
@@ -99,7 +99,6 @@ const App = () => {
           </Col>
         </Row>
       </Container>
-      <Footer />
     </BrowserRouter>
   );
 };
