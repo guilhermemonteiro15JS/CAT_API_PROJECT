@@ -26,6 +26,10 @@ const App = () => {
                 <i class="bi bi-house"></i>
                 Home
               </Nav.Link>
+              <Nav.Link href="/vote">
+                <i class="bi bi-clipboard2-check"></i>
+                Vote
+              </Nav.Link>
               <Nav.Link href="/breeds">
                 <i class="bi bi-grid-3x2-gap-fill"></i>
                 Breeds
