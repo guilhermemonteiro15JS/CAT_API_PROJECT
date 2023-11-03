@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
 import Vote from "./pages/Vote";
+
 import Collection from "./pages/Collection";
+import Uploader from "./pages/UpLoad";
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
 import AllBreeds from "./pages/AllBreeds";
 import About from "./pages/About";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { BodyApp, StyledNav, PageContent,  } from "./appstyled";
-
+import { BodyApp, StyledNav, PageContent, NavLinkADD } from "./appstyled";
 import { Container, Row, Col, Navbar, Nav, } from "react-bootstrap";
 
 
@@ -40,6 +41,12 @@ const App = () => {
                 <i class="bi bi-info-circle"></i>
                 About
               </Nav.Link>
+              <NavLinkADD>
+              <Nav.Link href="/Uploader">
+              <i class="bi bi-cloud-plus"></i>
+                ADD+
+              </Nav.Link>
+              </NavLinkADD>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -102,6 +109,14 @@ const App = () => {
                   <PageContent>
                     <Collection />
 
+                  </PageContent>
+                }
+              />
+               <Route
+                path="/UpLoader"
+                element={
+                  <PageContent>
+                    <Uploader /> 
                   </PageContent>
                 }
               />
