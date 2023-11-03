@@ -43,14 +43,10 @@
 }
  */
 
+
 import styled from "styled-components";
 
 export const StyledVoteOptions = styled.div`
-  display: ${(props) => (props.showResults ? "none" : "block")};
-`;
-
-export const StyledVoteResults = styled.div`
-  display: ${(props) => (props.showResults ? "block" : "none")};
   display: ${(props) => (props.showOptions ? "block" : "none")};
   text-align: center;
 
