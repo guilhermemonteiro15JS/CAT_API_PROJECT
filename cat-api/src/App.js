@@ -3,12 +3,13 @@ import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
 import Vote from "./pages/Vote";
 import Collection from "./pages/Collection"
+import Uploader from "./pages/UpLoad";
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
 import Footer from "./pages/components/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { BodyApp, StyledNav, PageContent } from "./appstyled";
+import { BodyApp, StyledNav, PageContent, NavLinkADD } from "./appstyled";
 
 import {
   Container,
@@ -39,6 +40,9 @@ const App = () => {
               <Nav.Link href="/Breeds">Breeds</Nav.Link>
               <Nav.Link href="/Collection">Collection</Nav.Link>
               <Nav.Link href="/About">About</Nav.Link>
+              <NavLinkADD>
+              <Nav.Link href="/UpLoader">ADD+</Nav.Link>
+              </NavLinkADD>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -95,7 +99,14 @@ const App = () => {
                   </PageContent>
                 }
               />
-              
+               <Route
+                path="/UpLoader"
+                element={
+                  <PageContent>
+                    <Uploader /> 
+                  </PageContent>
+                }
+              />
               
             </Routes>
           </Col>

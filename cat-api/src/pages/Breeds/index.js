@@ -38,7 +38,7 @@ const Breeds = () => {
         const response = await fetch(`https://api.thecatapi.com/v1/images/${referenceImageId}`, {
           method: 'GET',
           headers: {
-            'x-api-key': 'DEMO-API-KEY',
+            'x-api-key': 'live_3KWMCoQy0Rnmh2DAnoU9JOkq3TcQspM0shb25IZWCL6hd5FjUKM9y84W8L9lV8sv',
           },
           redirect: 'follow',
         });

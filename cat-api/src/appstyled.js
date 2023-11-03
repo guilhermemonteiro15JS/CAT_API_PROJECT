@@ -7,6 +7,15 @@ export const BodyApp = styled.body`
   flex-direction: column;
 `;
 
+export const NavLinkADD = styled.div`
+background-color: #4caf50; 
+  color: white;            
+  padding: 5px 2,5px;       
+  border-radius: 4px;       
+  cursor: pointer;          
+  text-decoration: none;    
+`;
+
 export const StyledNav = styled.nav`
   background-color: #f2b705;
   display: flex;
