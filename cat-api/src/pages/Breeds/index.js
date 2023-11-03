@@ -40,7 +40,8 @@ const Breeds = () => {
     console.log({ breeds, index });
     const currentBreed = breeds[index];
 
-    if (!currentBreed) {/* 
+    if (!currentBreed) {
+      /* 
       console.error("Breed not found"); */
       return;
     }
@@ -87,7 +88,7 @@ const Breeds = () => {
         <p> Queres ver apenas fotos de gatos, clica aqui:</p>
         <Link to="/AllBreeds"> All Breeds</Link>
       </LinkAllBreeds>
-      
+
       <select
         onChange={(e) => setSelectedBreed(e.target.value)}
         value={selectedBreed}
@@ -100,7 +101,7 @@ const Breeds = () => {
           </option>
         ))}
       </select>
-  
+
       <div>
         <a ref={wikiLinkRef} target="_blank"></a>
         <div ref={breedJsonRef}></div>
