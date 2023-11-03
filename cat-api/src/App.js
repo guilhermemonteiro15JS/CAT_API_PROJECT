@@ -8,7 +8,6 @@ import Uploader from "./pages/UpLoad";
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
 import AllBreeds from "./pages/AllBreeds";
-import About from "./pages/About";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { BodyApp, StyledNav, PageContent, NavLinkADD } from "./appstyled";
