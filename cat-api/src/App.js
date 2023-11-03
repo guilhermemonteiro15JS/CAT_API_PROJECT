@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home";
 import Vote from "./pages/Vote";
-import Collection from "./pages/Collection"
+import Collection from "./pages/Collection";
 import About from "./pages/About";
 import Breeds from "./pages/Breeds";
 import Footer from "./pages/components/footer";
@@ -22,7 +22,6 @@ import {
 } from "react-bootstrap";
 
 const App = () => {
-  
   return (
     <BrowserRouter>
       <StyledNav>
@@ -51,7 +50,7 @@ const App = () => {
                 path="/"
                 element={
                   <PageContent>
-                    <Home /> 
+                    <Home />
                   </PageContent>
                 }
               />
@@ -75,7 +74,7 @@ const App = () => {
                 path="/Vote"
                 element={
                   <PageContent>
-                    <Vote /> 
+                    <Vote />
                   </PageContent>
                 }
               />
@@ -83,7 +82,7 @@ const App = () => {
                 path="/Breeds"
                 element={
                   <PageContent>
-                    <Breeds /> 
+                    <Breeds />
                   </PageContent>
                 }
               />
@@ -91,12 +90,10 @@ const App = () => {
                 path="/Collection"
                 element={
                   <PageContent>
-                    <Collection /> 
+                    <Collection />
                   </PageContent>
                 }
               />
-              
-              
             </Routes>
           </Col>
         </Row>

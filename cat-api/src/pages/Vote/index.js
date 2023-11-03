@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { StyledVoteOptions } from "./styled";
-  
+
 const Vote = ({ showOptions }) => {
   const [showResults, setShowResults] = useState(false);
-  const [currentImageToVoteOn, setCurrentImageToVoteOn] = useState(null);
+  const [currentImageToVoteOn, setCurrentImageToVoteOn] = useState({});
   const [historicVotes, setHistoricVotes] = useState([]);
 
   const API_URL = `https://api.thecatapi.com/v1/`;
-  const API_KEY = "live_3KWMCoQy0Rnmh2DAnoU9JOkq3TcQspM0shb25IZWCL6hd5FjUKM9y84W8L9lV8sv";
+  const API_KEY =
+    "live_3KWMCoQy0Rnmh2DAnoU9JOkq3TcQspM0shb25IZWCL6hd5FjUKM9y84W8L9lV8sv";
 
   useEffect(() => {
     showVoteOptions();
   }, []);
+
+  
 
   function showVoteOptions() {
     setShowResults(false);
@@ -31,8 +34,10 @@ const Vote = ({ showOptions }) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        const imageToVoteOn = data[0];
         console.log("Data from API:", data);
-        setCurrentImageToVoteOn(data[0]);
+        setCurrentImageToVoteOn(imageToVoteOn);
+        console.log("Current Image to Vote On:", imageToVoteOn);
       })
       .catch((error) => {
         console.error("Error fetching image:", error);
@@ -45,9 +50,9 @@ const Vote = ({ showOptions }) => {
       image_id: currentImageToVoteOn.id,
       value,
     };
-  
+
     console.log("Voting with body:", body);
-  
+
     fetch(url, {
       method: "POST",
       body: JSON.stringify(body),
@@ -64,26 +69,30 @@ const Vote = ({ showOptions }) => {
         console.error("Error voting:", error);
       });
   }
-
+  useEffect(() => {
+    console.log("Imagem Atual para Votar:", currentImageToVoteOn);
+  }, [currentImageToVoteOn]);
+  
   return (
-    <>
-      {showOptions && (
-        <StyledVoteOptions>
-          <button onClick={() => vote(1)}>Vote Up</button>
-          <button onClick={() => vote(-1)}>Vote Down</button>
+    <StyledVoteOptions showOptions={true}>
+      {currentImageToVoteOn && currentImageToVoteOn.url ? (
+        <>
+          <img
+            id="imagem-para-votar"
+            className="col-lg"
+            src={currentImageToVoteOn.url}
+            alt="Gato para Votar"
+            style={{ border: '1px solid red' }}
+          />
           <div>
-            {currentImageToVoteOn && (
-              <img
-                id="image-to-vote-on"
-                className="col-lg"
-                src={currentImageToVoteOn.url}
-                alt="Cat to Vote On"
-              />
-            )}
+            <button onClick={() => vote(1)}>Votar Positivo</button>
+            <button onClick={() => vote(-1)}>Votar Negativo</button>
           </div>
-        </StyledVoteOptions>
+        </>
+      ) : (
+        <p>No image available</p>
       )}
-    </>
+    </StyledVoteOptions>
   );
 };
 

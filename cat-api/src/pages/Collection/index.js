@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyledVoteResults } from "./styled";
+import { StyledImageGrid, StyledVoteResults, TitleCollection } from "./styled";
 import Vote from "../Vote";
 
 function Collection() {
@@ -29,16 +29,15 @@ function Collection() {
 
   return (
     <>
-      <Vote showOptions={false} />
       <StyledVoteResults showResults={showResults}>
-      <button onClick={() => setShowResults(true)}>Show Historic Votes</button>
-        <div id="grid" className="imgrid">
+        <TitleCollection> As tuas imagens favoritas de Gatos</TitleCollection>
+        <StyledImageGrid>
           {historicVotes.map((voteData, index) => (
             <div key={index} className={`col-lg ${voteData.value < 0 ? "red" : "green"}`}>
               <img src={voteData.image.url} alt={`Historic Vote ${index + 1}`} />
             </div>
           ))}
-        </div>
+        </StyledImageGrid>
       </StyledVoteResults>
     </>
   );
