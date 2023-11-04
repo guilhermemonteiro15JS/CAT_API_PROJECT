@@ -1,11 +1,11 @@
 import React from "react";
-import {HomeContainer} from "./styled";
+import {HomeContainer,TitleCollection} from "./styled";
 import ImageSlider from "../../components/imageSlider";
 
 const Home = () => {
   return (
     <HomeContainer>
-      <p> Aqui verás tudo acerca de Gatos</p>
+       <TitleCollection> A tua página favorita sobre Gatos!</TitleCollection>
       <ImageSlider/>
     </HomeContainer>
   );

@@ -34,13 +34,13 @@ const About = () => {
       <Styleheading>Este projecto foi criado por:</Styleheading>
       <ul>
         <StylelistItem>Guilherme Monteiro 
-          <GitHubLink href="https://github.com/guilhergemonteiro15JS">
-            <i className="bi bi-github"></i>
+          <GitHubLink href="https://github.com/guilhermemonteiro15JS">
+            <i className="bi bi-github me-1"></i>
           </GitHubLink></StylelistItem>
         <StylelistItem>
          Ricardo Oliveira
           <GitHubLink href="https://github.com/ricardoszs">
-            <i className="bi bi-github"></i>
+            <i className="bi bi-github me-1"></i>
           </GitHubLink>
         </StylelistItem>
         

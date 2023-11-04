@@ -14,8 +14,6 @@ const Vote = ({ showOptions }) => {
     showVoteOptions();
   }, []);
 
-  
-
   function showVoteOptions() {
     setShowResults(false);
     setCurrentImageToVoteOn(null);
@@ -26,7 +24,7 @@ const Vote = ({ showOptions }) => {
 
   function showImageToVoteOn() {
     const url = `${API_URL}images/search`;
-  
+
     fetch(url, {
       headers: {
         "x-api-key": API_KEY,
@@ -72,7 +70,7 @@ const Vote = ({ showOptions }) => {
   useEffect(() => {
     console.log("Imagem Atual para Votar:", currentImageToVoteOn);
   }, [currentImageToVoteOn]);
-  
+
   return (
     <StyledVoteOptions showOptions={true}>
       {currentImageToVoteOn && currentImageToVoteOn.url ? (
@@ -82,11 +80,16 @@ const Vote = ({ showOptions }) => {
             className="col-lg"
             src={currentImageToVoteOn.url}
             alt="Gato para Votar"
-            style={{ border: '1px solid red' }}
+            style={{ border: "1px solid red" }}
           />
           <div>
-            <button onClick={() => vote(1)}>Votar Positivo</button>
-            <button onClick={() => vote(-1)}>Votar Negativo</button>
+            <button onClick={() => vote(1)}>
+              <i class="bi bi-heart-fill me-1"></i>
+              Like
+            </button>
+            <button onClick={() => vote(-1)}>
+            <i class="bi bi-heartbreak-fill me-1"></i>
+            Dislike</button>
           </div>
         </>
       ) : (

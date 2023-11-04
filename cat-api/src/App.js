@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import Vote from "./pages/Vote";
-
 import Collection from "./pages/Collection";
 import Uploader from "./pages/UpLoad";
 import About from "./pages/About";
@@ -10,45 +9,46 @@ import Breeds from "./pages/Breeds";
 import AllBreeds from "./pages/AllBreeds";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { BodyApp, StyledNav, PageContent, NavLinkADD } from "./appstyled";
-import { Container, Row, Col, Navbar, Nav, } from "react-bootstrap";
-
+import { StyledNav, PageContent, NavLinkADD } from "./appstyled";
+import { Container, Row, Col, Navbar, Nav } from "react-bootstrap";
 
 const App = () => {
   return (
     <BrowserRouter>
       <StyledNav>
         <Navbar collapseOnSelect expand="lg" variant="dark">
-          <Navbar.Brand href="/home">Mundo Felino</Navbar.Brand>
+          <Navbar.Brand href="/">
+            <img src="/logo.png" width={60} />
+          </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="nav-bar">
-              <Nav.Link href="/home">
-                <i class="bi bi-house"></i>
+              <Nav.Link href="/">
+                <i className="bi bi-house me-1"></i>
                 Home
               </Nav.Link>
               <Nav.Link href="/vote">
-                <i class="bi bi-clipboard2-check"></i>
+                <i className="bi bi-clipboard2-check me-1"></i>
                 Vote
               </Nav.Link>
               <Nav.Link href="/breeds">
-                <i class="bi bi-grid-3x2-gap-fill"></i>
+                <i className="bi bi-grid-3x2-gap-fill me-1"></i>
                 Breeds
               </Nav.Link>
-              <Nav.Link href="/Collection">
-                <i class="bi bi-collection"></i>
+              <Nav.Link href="/collection">
+                <i className="bi bi-collection me-1"></i>
                 Collection
               </Nav.Link>
-              <Nav.Link href="/About">
-                <i class="bi bi-info-circle"></i>
+              <Nav.Link href="/about">
+                <i className="bi bi-info-circle me-1"></i>
                 About
               </Nav.Link>
               <NavLinkADD>
-              <Nav.Link href="/Uploader">
-              <i class="bi bi-cloud-plus"></i>
-                ADD+
-              </Nav.Link>
+                <Nav.Link href="/uploader">
+                  <i className="bi bi-cloud-plus me-1"></i>
+                  ADD+
+                </Nav.Link>
               </NavLinkADD>
             </Nav>
           </Navbar.Collapse>
@@ -57,73 +57,17 @@ const App = () => {
       <Container>
         <Row>
           <Col>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <PageContent>
-                    <Home />
-                  </PageContent>
-                }
-              />
-              <Route
-                path="/home"
-                element={
-                  <PageContent>
-                    <Home />
-                  </PageContent>
-                }
-              />
-              <Route
-                path="/About"
-                element={
-                  <PageContent>
-                    <About />
-                  </PageContent>
-                }
-              />
-              <Route
-                path="/Vote"
-                element={
-                  <PageContent>
-                    <Vote />
-                  </PageContent>
-                }
-              />
-              <Route
-                path="/Breeds"
-                element={
-                  <PageContent>
-                    <Breeds />
-                  </PageContent>
-                }
-              />
-              <Route
-                path="/AllBreeds"
-                element={
-                  <PageContent>
-                    <AllBreeds /> 
-                    </PageContent>
-                }
-                />
-                <Route
-                path="/Collection"
-                element={
-                  <PageContent>
-                    <Collection />
-
-                  </PageContent>
-                }
-              />
-               <Route
-                path="/UpLoader"
-                element={
-                  <PageContent>
-                    <Uploader /> 
-                  </PageContent>
-                }
-              />
-            </Routes>
+            <PageContent>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/vote" element={<Vote />} />
+                <Route path="/breeds" element={<Breeds />} />
+                <Route path="/all-breeds" element={<AllBreeds />} />
+                <Route path="/collection" element={<Collection />} />
+                <Route path="/upLoader" element={<Uploader />} />
+              </Routes>
+            </PageContent>
           </Col>
         </Row>
       </Container>

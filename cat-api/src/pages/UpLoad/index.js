@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { ContainerFile, InputFile, ButtonFile, TextDescription, All, BodyContainer, Container } from "./styled";
+import {
+  ContainerFile,
+  InputFile,
+  ButtonFile,
+  TextDescription,
+  All,
+  BodyContainer,
+  Container,
+} from "./styled";
 
 const Uploader = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -38,38 +46,37 @@ const Uploader = () => {
 
   return (
     <BodyContainer>
-    <All>
-      <Container>
-      <TextDescription>
-        <div>
-          <p>
-            Se não encontraste aqui a imagem perfeita do teu 
-            gato ou tens uma foto engraçada do teu, 
-            faz upload da tua imagem e contribui para a
-            coleção de momentos adoráveis e divertidos 
-            do mundo felino.
-          </p>
-          <p>
-            Vamos criar juntos um espaço cheio de charme e travessuras dos
-            nossos queridos amigos de quatro patas. Mal podemos esperar para ver
-            as tuas contribuições felinas!
-          </p>
-        </div>
-      </TextDescription>
-      </Container>
+      <All>
+        <Container>
+          <TextDescription>
+            <div>
+              <p>
+                Se não encontraste aqui a imagem perfeita do teu gato ou tens
+                uma foto engraçada do teu, faz upload da tua imagem e contribui
+                para a coleção de momentos adoráveis e divertidos do mundo
+                felino.
+              </p>
+              <p>
+                Vamos criar juntos um espaço cheio de charme e travessuras dos
+                nossos queridos amigos de quatro patas. Mal podemos esperar para
+                ver as tuas contribuições felinas!
+              </p>
+            </div>
+          </TextDescription>
+        </Container>
 
-      <ContainerFile>
-        <InputFile type="file" onChange={handleFileChange} />
-        {previewImage && (
-          <img
-            src={previewImage}
-            alt="Preview"
-            style={{ maxWidth: "100%", maxHeight: "200px", margin: "20px 0" }}
-          />
-        )}
-        <ButtonFile onClick={handleUpload}>Submeter</ButtonFile>
-      </ContainerFile>
-    </All>
+        <ContainerFile>
+          <InputFile type="file" onChange={handleFileChange} />
+          {previewImage && (
+            <img
+              src={previewImage}
+              alt="Preview"
+              style={{ maxWidth: "100%", maxHeight: "200px", margin: "20px 0" }}
+            />
+          )}
+          <ButtonFile onClick={handleUpload}>Submeter</ButtonFile>
+        </ContainerFile>
+      </All>
     </BodyContainer>
   );
 };

@@ -1,14 +1,16 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Route, Routes, Link } from "react-router-dom";
-import { BreedImage, BreedDiv, LinkAllBreeds } from "./styled";
-import AllBreeds from "../AllBreeds";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  BreedImage,
+  BreedInformation,
+  BreedDiv,
+  LinkAllBreeds,
+} from "./styled";
 
 const Breeds = () => {
   const [breeds, setBreeds] = useState([]);
-  const [selectedBreed, setSelectedBreed] = useState(0);
-  const breedImageRef = useRef(null);
-  const breedJsonRef = useRef(null);
-  const wikiLinkRef = useRef(null);
+  const [selectedBreed, setSelectedBreed] = useState(null);
+  const [selectedBreedImage, setSelectedBreedImage] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,8 +24,12 @@ const Breeds = () => {
         });
 
         const result = await response.json();
-        console.log(result);
-        setBreeds(result.filter((breed) => breed.reference_image_id));
+        const filteredBreeds = result.filter(
+          (breed) => !!breed.reference_image_id
+        );
+
+        setBreeds(filteredBreeds);
+        setSelectedBreed(filteredBreeds[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -33,83 +39,82 @@ const Breeds = () => {
   }, []);
 
   useEffect(() => {
-    showBreedImage(selectedBreed);
-  }, [selectedBreed, breeds]);
+    async function fetchSelectedBreedImage() {
+      const referenceImageId = selectedBreed.reference_image_id;
 
-  const showBreedImage = async (index) => {
-    console.log({ breeds, index });
-    const currentBreed = breeds[index];
+      try {
+        const imageResponse = await fetch(
+          `https://api.thecatapi.com/v1/images/${referenceImageId}`,
+          {
+            method: "GET",
+            headers: {
+              "x-api-key":
+                "live_3KWMCoQy0Rnmh2DAnoU9JOkq3TcQspM0shb25IZWCL6hd5FjUKM9y84W8L9lV8sv",
+            },
+            redirect: "follow",
+          }
+        );
 
-    if (!currentBreed) {
-      /* 
-      console.error("Breed not found"); */
-      return;
-    }
+        const imageResult = await imageResponse.json();
 
-    const referenceImageId = currentBreed.reference_image_id;
+        console.log("Image Result:", imageResult);
 
-    try {
-      const imageResponse = await fetch(
-        `https://api.thecatapi.com/v1/images/${referenceImageId}`,
-        {
-          method: "GET",
-          headers: {
-            "x-api-key":
-              "live_3KWMCoQy0Rnmh2DAnoU9JOkq3TcQspM0shb25IZWCL6hd5FjUKM9y84W8L9lV8sv",
-          },
-          redirect: "follow",
+        if (imageResult && imageResult.url) {
+          setSelectedBreedImage(imageResult.url);
+        } else {
+          console.error("A URL da imagem é undefined.");
         }
-      );
-
-      const imageResult = await imageResponse.json();
-
-      console.log("Image Result:", imageResult);
-
-      if (imageResult && imageResult.url) {
-        console.log("Image URL:", imageResult.url);
-        console.log("Temperament:", currentBreed.temperament);
-        console.log("Wikipedia URL:", currentBreed.wikipedia_url);
-
-        breedImageRef.current.src = imageResult.url;
-        breedJsonRef.current.textContent = currentBreed.temperament;
-        wikiLinkRef.current.href = currentBreed.wikipedia_url;
-        wikiLinkRef.current.innerHTML = currentBreed.wikipedia_url;
-      } else {
-        console.error("A URL da imagem é undefined.");
+      } catch (error) {
+        console.error("Error fetching image data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching image data:", error);
     }
-  };
+
+    if (selectedBreed) {
+      fetchSelectedBreedImage();
+    }
+  }, [selectedBreed]);
 
   return (
     <BreedDiv>
       <LinkAllBreeds>
-        <p> Queres ver apenas fotos de gatos, clica aqui:</p>
-        <Link to="/AllBreeds"> All Breeds</Link>
+        <p>Queres ver apenas fotos de gatos, clica aqui:</p>
+        <Link to="/all-breeds"> All Breeds</Link>
       </LinkAllBreeds>
 
       <select
-        onChange={(e) => setSelectedBreed(e.target.value)}
-        value={selectedBreed}
+        onChange={(e) => {
+          setSelectedBreed(breeds.find(({ id }) => id === e.target.value));
+        }}
+        value={selectedBreed?.id}
         name="breed_selector"
         id="breed_selector"
       >
-        {breeds.map((breed, index) => (
-          <option key={index} value={index}>
+        <option value="" disabled selected>
+          Select breed
+        </option>
+        {breeds.map((breed) => (
+          <option key={breed.id} value={breed.id}>
             {breed.name}
           </option>
         ))}
       </select>
 
-      <div>
-        <a ref={wikiLinkRef} target="_blank"></a>
-        <div ref={breedJsonRef}></div>
-      </div>
+      {selectedBreed && (
+        <>
+          <BreedInformation>
+            <a href={selectedBreed.wikipedia_url} target="_blank">
+              {selectedBreed.wikipedia_url}
+            </a>
+            <div>{selectedBreed.temperament}</div>
+          </BreedInformation>
 
-      <div>
-        <BreedImage ref={breedImageRef} alt="Breed Image" />
-      </div>
+          <div>
+            {selectedBreedImage && (
+              <BreedImage src={selectedBreedImage} alt="Breed Image" />
+            )}
+          </div>
+        </>
+      )}
     </BreedDiv>
   );
 };

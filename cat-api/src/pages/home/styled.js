@@ -23,3 +23,10 @@ export const ClassHome = styled.div`
 export const KeyParagraph = styled.p`
   font-size: 10px;
 `;
+export const TitleCollection = styled.h1`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+`;
+

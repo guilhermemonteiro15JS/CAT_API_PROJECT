@@ -1,1 +1,0 @@
-import showVoteResults from "./vote"
